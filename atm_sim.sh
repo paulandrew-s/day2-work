@@ -3,19 +3,24 @@ choice=1
 
 while [ $choice -ne 5 ]
 do
+	echo "===================="
 	echo "1. Check Balance"
 	echo "2. Withdraw"
 	echo "3. Deposit" 
 	echo "4. Exit"
+	echo "===================="
 
-	echo "Enter your choice:"
+
+	echo -n "Enter your choice:"
 	read choice
 	case $choice in
 	1)
-		echo "Your balance is ${balance}"
+		echo
+		echo -n "Your balance is ${balance}"
 		;;
 	2)
-		echo "Enter amount to withdraw: "
+		echo
+		echo -n "Enter amount to withdraw: "
 		read withdraw
 		if [[ $withdraw -le $balance ]]; then
 
@@ -26,12 +31,15 @@ do
 		fi
 		;;
 	3)
+		echo
 		echo "Enter amount to deposit: "
 		read deposit
 		balance=$((balance+deposit))
 		;;
 	4)
+		echo "===================="
 		echo "Thank you for banking with us"
+		echo "===================="
 		choice=5
 		exit 1
 		;;
